@@ -1,0 +1,53 @@
+<div class="container">
+  <h3>Payment Form</h3>
+  <div class="row">
+    <div class="form-group col">
+      <label>Payee Name</label>
+      <input class="form-control" (input)="onNameChange($event.target.value)" />
+    </div>
+    <div class="col">
+      <label><b>Name</b></label>
+      <div>
+        {{ name | titlecase }}
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col">
+      <label>Payment Date</label>
+      <input type="date" class="form-control" (input)="onDateChange($event.target.value)" />
+    </div>
+    <div class="col">
+      <label><b>Payment Date</b></label>
+      <div>
+        {{ date | date: 'MMMM d, yyyy'}}
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col">
+      <label>Amount</label>
+      <input type="number" class="form-control" (input)="onAmountChange($event.target.value)" />
+    </div>
+    <div class="col">
+      <label><b>Amount</b></label>
+      <div>
+        {{ amount | currency }}
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col">
+      <label>Number</label>
+      <input type="number" class="form-control" (input)="onNumberChange($event.target.value)" />
+    </div>
+    <div class="col">
+      <label><b>Number</b></label>
+      <div>
+        {{ number | number: '1.0-2' }}
+        <!-- At least one digit before the decimal, and from 0-2 after -->
+      </div>
+    </div>
+  </div>
+  {{ car | json}}
+</div>
