@@ -9,6 +9,8 @@ import { HomeComponent } from './home/home.component';
 import { TypingComponent } from './typing/typing.component';
 import { PwComponent } from './pw/pw.component';
 import { PipesComponent } from './pipes/pipes.component';
+import { ConvertPipe } from './convert.pipe';
+import { DirectivesComponent } from './directives/directives.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -16,6 +18,7 @@ const appRoutes: Routes = [
   { path: 'typing', component: TypingComponent },
   { path: 'password', component: PwComponent },
   { path: 'pipes', component: PipesComponent },
+  { path: 'directives', component: DirectivesComponent },
   { path: '**', redirectTo: ''}
 ];
 
@@ -27,7 +30,9 @@ const appRoutes: Routes = [
     HomeComponent,
     TypingComponent,
     PwComponent,
-    PipesComponent
+    PipesComponent,
+    ConvertPipe,
+    DirectivesComponent
   ],
   imports: [
     BrowserModule,

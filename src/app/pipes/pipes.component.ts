@@ -10,6 +10,7 @@ export class PipesComponent implements OnInit {
   date: string;
   amount: number;
   number: number;
+  miles: number;
   car = {
     make: 'Toyota',
     model: 'Corolla',
@@ -35,5 +36,9 @@ export class PipesComponent implements OnInit {
 
   onNumberChange(value: string) {
     this.number = parseFloat(value);
+  }
+
+  onMilesChange(value: string) {
+    this.miles = parseFloat(value);
   }
 }
