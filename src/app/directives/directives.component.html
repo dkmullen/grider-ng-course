@@ -1,19 +1,48 @@
 <nav>
   <ul class="pagination">
-    <!-- let i is behind-the-scenes ng (called 'aliasing') to help us grab the index -->
+    <li class="page-item" [ngClass]="{ disabled: currentPage === 0 }">
+      <a (click)="currentPage = currentPage - 1" class="page-link">Prev</a>
+    </li>
+    <!-- ng-container exists to give us a way to use more than one structural (*ng) directive.
+      Style problems (and other problems) can arise if we use a div, span, etc.
+      'let i' is behind-the-scenes ng (called 'aliasing') to help us grab the index -->
+    <!-- <ng-container *ngFor="let image of images; let i = index"> -->
+      <!-- customclass is a custom directive that basically does the same as ngClass -->
+      <!-- appTimes is our custom struct dir that does what ngFor does -->
+    <ng-container *appTimes="images.length; let i = index">
+      <li
+        class="page-item"
+        [customclass]="{ active: i === currentPage }"
+        *ngIf="checkIndex(i)"
+      >
+      <a (click)="currentPage = i" class="page-link">{{ i + 1}}</a>
+    </li>
+    </ng-container>
+
     <li
       class="page-item"
-      [ngClass]="{ active: i === currentPage }"
-      *ngFor="let image of images; let i = index"
-    >
-      <a class="page-link">{{ i + 1}}</a>
+      [ngClass]="{ disabled: currentPage === images.length - 1 }"
+      >
+      <a (click)="currentPage = currentPage + 1" class="page-link">Next</a>
     </li>
   </ul>
 </nav>
 
-<!-- <div *ngFor="let image of images">
-  <h2>{{image.title}}</h2>
-  <div><img [src]=image.url></div>
+<div>
+  <h4>{{images[currentPage].title}}</h4>
+  <img [src]=images[currentPage].url>
+</div>
+
+<!-- <div [ngSwitch]="currentPage">
+  <div *ngSwitchCase="0">
+    Current page is zero!
+  </div>
+  <div *ngSwitchCase="1">
+    Current page is one!
+  </div>
+  <div *ngSwitchDefault>
+    Current page is none of your business!
+  </div>
 </div> -->
 
 

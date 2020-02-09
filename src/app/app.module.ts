@@ -11,6 +11,8 @@ import { PwComponent } from './pw/pw.component';
 import { PipesComponent } from './pipes/pipes.component';
 import { ConvertPipe } from './convert.pipe';
 import { DirectivesComponent } from './directives/directives.component';
+import { CustomclassDirective } from './directives/customclass.directive';
+import { TimesDirective } from './directives/times.directive';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -32,7 +34,9 @@ const appRoutes: Routes = [
     PwComponent,
     PipesComponent,
     ConvertPipe,
-    DirectivesComponent
+    DirectivesComponent,
+    CustomclassDirective,
+    TimesDirective
   ],
   imports: [
     BrowserModule,
